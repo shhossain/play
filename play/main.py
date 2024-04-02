@@ -8,6 +8,9 @@ import argparse
 import subprocess
 import platform
 from pathlib import Path
+import warnings
+
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 accepted_content_types = [
     "video",
