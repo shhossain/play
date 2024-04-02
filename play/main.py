@@ -128,7 +128,7 @@ def get_video_urls(vurl: str):
 def play_videos(urls, vlc_cmd):
     try:
         pr = subprocess.Popen(
-            [vlc_cmd, "--playlist-enqueue", "--play-and-exit"] + urls,
+            [vlc_cmd, "--playlist-enqueue"] + urls,
             stderr=subprocess.DEVNULL,
         )
         pr.wait(3)
@@ -141,6 +141,8 @@ def play_videos(urls, vlc_cmd):
         else:
             print("No VLC found")
     except subprocess.TimeoutExpired:
+        pass
+    except Exception as e:
         pass
 
 
